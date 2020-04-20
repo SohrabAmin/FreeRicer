@@ -1,8 +1,15 @@
 Goals:
+---
 -> Automatically solve the math section of freerice.org
-    -> Use selenium to find and select question object
-    -> Find options to select from question
-    -> Find the solution to the question
-    -> Select that solution
+    1. Use selenium to find and select question object
+    2. Find options to select from question
+    3. Find the solution to the question
+    4. Select that solution
 
 -> Automatically solve the word section of freerice.org
+
+
+Splitting Up Work:
+---
+Sohrab: [1, 2]
+Aishah: [3, 4]
