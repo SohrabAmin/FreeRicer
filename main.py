@@ -1,6 +1,7 @@
 import selenium
 
 #Create a driver to access the web
+d = 'Driver'
 
 class Question:
     """
