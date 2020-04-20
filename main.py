@@ -1,7 +1,13 @@
-import selenium
+from selenium import webdriver
+import os
+
 
 #Create a driver to access the web
-d = 'Driver'
+driver_path = os.getcwd() + '/geckodriver'
+
+#Firefox
+driver = webdriver.Firefox(executable_path=driver_path)
+
 
 class Question:
     """
