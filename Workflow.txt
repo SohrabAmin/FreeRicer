@@ -7,9 +7,17 @@ Goals:
     4. Select that solution
 
 -> Automatically solve the word section of freerice.org
-
+    1. Use selenium to find and select question object
+    2. Find all possible answers to question 
+    3. Find the solution to the question
+    4. Select that solution
 
 Splitting Up Work:
 ---
+Math Section:
+Sohrab: [1, 2]
+Aishah: [3, 4]
+
+Word Section:
 Sohrab: [1, 2]
 Aishah: [3, 4]
