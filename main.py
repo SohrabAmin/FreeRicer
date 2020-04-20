@@ -35,7 +35,13 @@ class Question:
         Looks at question attribute in Question object and
         provides solution from answers attribute
         """
-        pass
+        ans = 0
+        for char in self.question:
+            if 'x' == char:
+                pass
+            if ('+' == char) or ('-' == char) or ('/' == char):
+                ans = eval(self.question)
+        return ans
 
 
 if __name__ == '__main__':
