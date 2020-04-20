@@ -17,12 +17,18 @@ class Question:
     answers: list
     """
 
-    def __init__(self, answers):
+    def __init__(self, question, answers):
+        self.question = question
         self.answers = answers
 
     def solver(self):
+        """
+        Looks at question attribute in Question object and
+        provides solution from answers attribute
+        """
         pass
 
 
 if __name__ == '__main__':
-    pass
+    q = Question('8 x 11', ['66', '88', '87', '23'])
+    q.solver() == 88
