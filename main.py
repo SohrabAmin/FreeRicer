@@ -1,12 +1,21 @@
+from selenium.webdriver.support import expected_conditions as EC
 from selenium import webdriver
+from selenium.common.exceptions import NoSuchElementException
 import os
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
 
 
-#Create a driver to access the web
-driver_path = os.getcwd() + '/geckodriver'
-
-#Firefox
-driver = webdriver.Firefox(executable_path=driver_path)
+def click_element(driver, xpath: str) -> None:
+    """
+    Find an HTML element with <xpath> and clicks it.
+    """
+    try:
+        element = WebDriverWait(driver, 10).until(
+            EC.presence_of_element_located((By.XPATH, xpath)))
+        element.click()
+    except NoSuchElementException:
+        print('Can Not Find element with XPATH: ' + xpath)
 
 
 class Question:
@@ -30,5 +39,18 @@ class Question:
 
 
 if __name__ == '__main__':
-    q = Question('8 x 11', ['66', '88', '87', '23'])
-    q.solver() == 88
+
+    # Create a driver to access the web
+    driver_path = os.getcwd() + '/geckodriver'
+
+    # Open Firefox Web Browser
+    driver = webdriver.Firefox(executable_path=driver_path)
+
+    # Open FreeRice.com
+    driver.get('https://freerice.com/categories')
+
+    # Click 'OK' on cookie notification
+    click_element(driver, '/html/body/div[1]/div/div/div[2]/div[1]/button')
+
+    #Click on 'Basic Math (Pre-Algebra)' icon
+    click_element(driver, '/html/body/div[2]/section/div/div[1]/div/div[2]/div/div/div[7]/div[2]/div[1]')
