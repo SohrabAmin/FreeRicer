@@ -37,9 +37,9 @@ class Question:
         """
         for char in self.question:
             if 'x' == char:
-                return eval(self.question[:-1].replace('x', '*'))
+                return str(eval(self.question[:-1].replace('x', '*')))
             elif ('+' == char) or ('-' == char) or ('/' == char):
-                return eval(self.question[:-1])
+                return str(eval(self.question[:-1]))
 
 
 if __name__ == '__main__':
