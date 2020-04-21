@@ -18,7 +18,7 @@ def click_element(driver, xpath: str) -> None:
         print('Can Not Find element with XPATH: ' + xpath)
 
 
-def get_text(driver, xpath:str) -> str:
+def get_text(driver, xpath: str) -> str:
     """
     Find and Return the value of the HTML element with <xpath>
     """
@@ -28,6 +28,7 @@ def get_text(driver, xpath:str) -> str:
         return element.get_attribute('innerHTML')
     except NoSuchElementException:
         print('Can Not Find element with XPATH: ' + xpath)
+
 
 class Question:
     """
@@ -78,6 +79,9 @@ if __name__ == '__main__':
     ans3 = get_text(driver, '/html/body/div[2]/section/div/div[1]/div/div/div[4]/div[1]/div/div/div/div/div/div[4]')
     ans4 = get_text(driver, '/html/body/div[2]/section/div/div[1]/div/div/div[4]/div[1]/div/div/div/div/div/div[5]')
 
+    # Create question object
     q = Question(question, [ans1, ans2, ans3, ans4])
 
-    print(q.solver in q.answers)
+    # Select option that is correct
+    ans_location = '/html/body/div[2]/section/div/div[1]/div/div/div[4]/div[1]/div/div/div/div/div/div'
+    click_element(driver, ans_location + "[%d]" % (q.answers.index(q.solver())+2))
