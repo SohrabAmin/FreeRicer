@@ -37,22 +37,20 @@ class Question:
     answers: list
     """
 
-    def __init__(self, question, answers):
+    def __init__(self, question: str, answers: list):
         self.question = question
         self.answers = answers
 
-    def solver(self):
+    def solver(self) -> int:
         """
         Looks at question attribute in Question object and
         provides solution from answers attribute
         """
-        ans = 0
         for char in self.question:
             if 'x' == char:
-                pass
-            if ('+' == char) or ('-' == char) or ('/' == char):
-                ans = eval(self.question)
-        return ans
+                return str(eval(self.question[:-1].replace('x', '*')))
+            elif ('+' == char) or ('-' == char) or ('/' == char):
+                return str(eval(self.question[:-1]))
 
 
 if __name__ == '__main__':
